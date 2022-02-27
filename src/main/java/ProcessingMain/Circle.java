@@ -4,7 +4,8 @@ import processing.core.PApplet;
 
 public class Circle extends PApplet {
     public static final int FACTOR = 5;
-    private int posX, posY, diameter, index;
+    private int posX, posY, diameter;
+    private final int index;
     private ProcessingOOPS reference;
 
     public static int degree=0;
