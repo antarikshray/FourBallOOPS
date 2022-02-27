@@ -3,35 +3,31 @@ package ProcessingMain;
 import processing.core.PApplet;
 
 public class Circle extends PApplet {
+    public static final int FACTOR = 5;
     private int posX, posY, diameter, index;
+    private ProcessingOOPS reference;
 
-    public static int deg=0;
+    public static int degree=0;
 
-    public int getThePosX(){
-        this.posX = deg * index;
-        return this.posX;
-    }
+    public void drawCircle() { this.reference.ellipse(this.posX, this.posY, this.diameter, this.diameter);}
 
-    public int getThePosY(){
-        return this.posY;
-    }
-
-    public int getTheDiameter(){
-        return this.diameter;
-    }
-
-    Circle(int posX, int posY, int diameter, int index){
+    Circle(int posX, int diameter, int index, int height, ProcessingOOPS reference){
         this.posX = posX;
-        this.posY = posY;
+        this.posY = getPosY(index, height);
         this.diameter = diameter;
         this.index = index;
+        this.reference = reference;
+    }
+
+    private int getPosY(int index, int height) {
+        return index * height / FACTOR;
     }
 
     public static void displace(){
-        deg++;
+        degree++;
     }
 
-    public void setCircle(){
-        this.posX = deg*this.index;
+    public void setNewCircle(){
+        this.posX = degree*this.index;
     }
 }
